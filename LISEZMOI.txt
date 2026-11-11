@@ -1,0 +1,26 @@
+SENTINELLE DDoS - Application Streamlit
+=======================================
+
+Lancement
+---------
+    pip install -r requirements.txt
+    streamlit run app.py
+
+Connexion
+---------
+    Identifiant  : yassmine
+    Mot de passe : streamlityassmine
+
+Le mot de passe n'est pas stocké en clair dans app.py (hash PBKDF2-SHA256 + sel).
+Pour en définir un nouveau, exécutez :
+
+    python -c "import secrets,hashlib;s=secrets.token_bytes(16);m=input('Nouveau mot de passe: ');print('SEL =',s.hex());print('HASH =',hashlib.pbkdf2_hmac('sha256',m.encode(),s,200000).hex())"
+
+puis remplacez SEL et HASH_MDP dans app.py.
+
+Jeu de données
+--------------
+dataset.csv = le fichier telecom_dataset.csv que vous m'avez fourni
+(1000 lignes, colonne cible is_anomaly). Pour utiliser votre jeu DDoS
+(ddos_logs_20000.csv, colonne label), envoyez-le depuis la barre latérale
+de l'application : aucune modification du code n'est nécessaire.
